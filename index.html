@@ -3,208 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zakhor זכור — Maîtrisez les lois du Chabbat</title>
-  <meta name="description" content="Application mobile d'étude des lois du Chabbat. Flashcards, quiz, révision espacée.">
+  <title>Zakhor זכור — Retenir les lois du Chabbat</title>
+  <meta name="description" content="Zakhor : l'application gratuite pour retenir les lois du Chabbat du Pninei Halakha. Disponible sur iPhone et Android.">
+  <meta property="og:title" content="Zakhor — Retenir les lois du Chabbat">
+  <meta property="og:description" content="Révision espacée, QCM, cas pratiques, badges et défis entre amis. Gratuit sur iPhone et Android.">
+  <meta property="og:image" content="https://raphencoder.github.io/zakhor-site/img/01_accueil.jpg">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #0A0A14;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-    }
-    a { color: #5B5FEF; text-decoration: none; }
+    body { background: #0A0A14; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+    a { color: #8b8ff5; text-decoration: none; }
     a:hover { text-decoration: underline; }
-
-    /* HEADER */
-    header {
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #1a1a2e;
-    }
+    header { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1a1a2e; }
     .logo { font-size: 1.3rem; font-weight: 700; }
     .logo span { color: #8b8ff5; margin-left: 6px; }
-    nav a { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+    nav a { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-left: 18px; }
 
-    /* HERO */
-    .hero {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-      text-align: center;
-    }
-    .badge {
-      display: inline-block;
-      background: #1a1a2e;
-      border: 1px solid #5B5FEF;
-      color: #8b8ff5;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-size: clamp(2rem, 6vw, 3rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
+    .hero { max-width: 680px; margin: 0 auto; padding: 72px 24px 40px; text-align: center; }
+    .badge { display: inline-block; background: #12301f; border: 1px solid #22c55e; color: #86efac; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 24px; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
     h1 em { color: #8b8ff5; font-style: normal; }
-    .tagline {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 36px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: #5B5FEF;
-      color: #fff;
-      padding: 16px 36px;
-      border-radius: 12px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .cta-btn:hover { background: #4a4edf; text-decoration: none; }
-    .cta-sub {
-      margin-top: 12px;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
-    }
+    .tagline { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin: 0 auto 32px; max-width: 520px; }
 
-    /* STATS */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 40px 24px;
-      border-top: 1px solid #1a1a2e;
-      border-bottom: 1px solid #1a1a2e;
-      flex-wrap: wrap;
-    }
+    .stores { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .store { display: flex; align-items: center; gap: 12px; background: #fff; color: #000; padding: 10px 22px; border-radius: 12px; min-width: 200px; transition: transform .15s; }
+    .store:hover { text-decoration: none; transform: translateY(-2px); }
+    .store .ico { font-size: 1.9rem; line-height: 1; }
+    .store small { display: block; font-size: 0.7rem; opacity: .7; line-height: 1.1; }
+    .store b { font-size: 1.15rem; line-height: 1.2; }
+    .cta-sub { margin-top: 14px; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    .cta-sub a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+
+    .shots { display: flex; gap: 16px; overflow-x: auto; padding: 20px 24px 36px; scroll-snap-type: x mandatory; max-width: 1100px; margin: 0 auto; }
+    .shots img { height: 460px; border-radius: 22px; border: 1px solid #1f1f38; scroll-snap-align: center; flex: none; }
+
+    .stats { display: flex; justify-content: center; gap: 40px; padding: 36px 24px; border-top: 1px solid #1a1a2e; border-bottom: 1px solid #1a1a2e; flex-wrap: wrap; }
     .stat { text-align: center; }
     .stat-num { font-size: 1.8rem; font-weight: 800; color: #8b8ff5; }
     .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
-    /* FEATURES */
-    .features {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .feature {
-      background: #0f0f1e;
-      border: 1px solid #1a1a2e;
-      border-radius: 16px;
-      padding: 24px;
-    }
-    .feature-icon { font-size: 2rem; margin-bottom: 12px; }
-    .feature h3 { font-size: 1rem; margin-bottom: 8px; }
-    .feature p { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+    h2.section { text-align: center; font-size: 1.6rem; margin: 56px 24px 8px; }
+    .features { max-width: 860px; margin: 0 auto; padding: 24px 24px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .feature { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 16px; padding: 22px; }
+    .feature-icon { font-size: 2rem; margin-bottom: 10px; }
+    .feature h3 { font-size: 1rem; margin-bottom: 6px; }
+    .feature p { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
 
-    /* CTA BOTTOM */
-    .cta-bottom {
-      text-align: center;
-      padding: 60px 24px;
-      border-top: 1px solid #1a1a2e;
-    }
-    .cta-bottom h2 { font-size: 1.6rem; margin-bottom: 12px; }
-    .cta-bottom p { color: rgba(255,255,255,0.55); margin-bottom: 28px; }
+    .news { max-width: 680px; margin: 0 auto; padding: 8px 24px 48px; }
+    .news-card { background: #10162b; border: 1px solid #2a3360; border-radius: 16px; padding: 22px 24px; }
+    .news-card h3 { font-size: 1rem; color: #a5b4fc; margin-bottom: 10px; }
+    .news-card li { margin: 6px 0 6px 18px; color: rgba(255,255,255,0.8); font-size: 0.95rem; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid #1a1a2e;
-      padding: 24px;
-      text-align: center;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.35);
-    }
-    footer a { color: rgba(255,255,255,0.45); }
+    .cta-bottom { text-align: center; padding: 56px 24px; border-top: 1px solid #1a1a2e; }
+    .cta-bottom h2 { font-size: 1.6rem; margin-bottom: 10px; }
+    .cta-bottom p { color: rgba(255,255,255,0.6); margin-bottom: 26px; }
+    footer { border-top: 1px solid #1a1a2e; padding: 24px; text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.5); }
+    @media (max-width: 520px) { .shots img { height: 380px; } }
   </style>
 </head>
 <body>
 
 <header>
   <div class="logo">📚 Zakhor <span>זכור</span></div>
-  <nav><a href="privacy.html">Confidentialité</a></nav>
+  <nav><a href="#nouveautes">Nouveautés</a><a href="privacy.html">Confidentialité</a></nav>
 </header>
 
 <section class="hero">
-  <div class="badge">📱 Application Android</div>
-  <h1>Maîtrisez les lois<br>du <em>Chabbat</em></h1>
-  <p class="tagline">Flashcards, quiz et révision espacée pour retenir les halakhot durablement.</p>
-  <a class="cta-btn" href="https://github.com/Raphencoder/zakhor-site/releases/latest/download/app-arm64-v8a-release.apk">
-    ⬇ Télécharger pour Android
-  </a>
-  <p class="cta-sub">Gratuit · Sans publicité · Hors-ligne</p>
+  <div class="badge">🎉 Disponible sur iPhone et Android</div>
+  <h1>Retenez les lois<br>du <em>Chabbat</em></h1>
+  <p class="tagline">Les halakhot du Pninei Halakha en cartes courtes : QCM, Vrai/Faux et cas pratiques, révisés au bon moment pour ne plus les oublier.</p>
+  <div class="stores">
+    <a class="store" href="https://apps.apple.com/fr/app/zakhor-halakha-chabbat/id6826802153">
+      <span class="ico"></span><span><small>Télécharger dans</small><b>l'App Store</b></span>
+    </a>
+    <a class="store" href="https://play.google.com/store/apps/details?id=com.raphael.zakhor">
+      <span class="ico">▶</span><span><small>Disponible sur</small><b>Google Play</b></span>
+    </a>
+  </div>
+  <p class="cta-sub">Gratuit · Sans publicité · Fonctionne hors ligne<br>
+    Android sans Google Play ? <a href="https://github.com/Raphencoder/zakhor-site/releases/latest/download/app-arm64-v8a-release.apk">Télécharger l'APK</a></p>
 </section>
 
-<div class="stats">
-  <div class="stat">
-    <div class="stat-num">470+</div>
-    <div class="stat-label">Cartes d'étude</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">30</div>
-    <div class="stat-label">Chapitres couverts</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">SM-2</div>
-    <div class="stat-label">Algorithme scientifique</div>
-  </div>
+<div class="shots">
+  <img src="img/01_accueil.jpg" alt="Accueil de Zakhor : série, étoiles et illustration de progression" loading="lazy">
+  <img src="img/02_qcm.jpg" alt="Une question à choix multiples" loading="lazy">
+  <img src="img/04_maitrise.jpg" alt="Carte maîtrisée avec les étoiles de David" loading="lazy">
+  <img src="img/05_badges.jpg" alt="Les trophées et badges en cours" loading="lazy">
+  <img src="img/07_decisionnaires.jpg" alt="La frise des décisionnaires" loading="lazy">
 </div>
 
-<div class="features">
-  <div class="feature">
-    <div class="feature-icon">🧠</div>
-    <h3>Révision espacée</h3>
-    <p>Algorithme SM-2 — l'app adapte le rythme à votre niveau et vos résultats.</p>
-  </div>
-  <div class="feature">
-    <div class="feature-icon">🎮</div>
-    <h3>Quiz gamifiés</h3>
-    <p>Flashcards, QCM, scénarios pratiques et Vrai/Faux pour rester motivé.</p>
-  </div>
-  <div class="feature">
-    <div class="feature-icon">👥</div>
-    <h3>Communauté</h3>
-    <p>Invitez vos amis et comparez vos progressions ensemble.</p>
-  </div>
-  <div class="feature">
-    <div class="feature-icon">🕍</div>
-    <h3>Chabbat-aware</h3>
-    <p>Aucune notification du vendredi soir au samedi soir. Streak protégé.</p>
-  </div>
-  <div class="feature">
-    <div class="feature-icon">📶</div>
-    <h3>100% hors-ligne</h3>
-    <p>Toutes les cartes sont disponibles sans connexion.</p>
-  </div>
-  <div class="feature">
-    <div class="feature-icon">✅</div>
-    <h3>Sourcé</h3>
-    <p>Chaque carte référence Pninei Halakha — vérifiable en un clic.</p>
-  </div>
+<div class="stats">
+  <div class="stat"><div class="stat-num">480+</div><div class="stat-label">Cartes de halakha</div></div>
+  <div class="stat"><div class="stat-num">30</div><div class="stat-label">Chapitres couverts</div></div>
+  <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Termes au glossaire</div></div>
+  <div class="stat"><div class="stat-num">70+</div><div class="stat-label">Badges à débloquer</div></div>
 </div>
+
+<h2 class="section">Ce que fait Zakhor</h2>
+<div class="features">
+  <div class="feature"><div class="feature-icon">🧠</div><h3>Révision au bon moment</h3><p>La répétition espacée ramène chaque carte juste avant que vous l'oubliiez. 3 bonnes réponses espacées = carte maîtrisée.</p></div>
+  <div class="feature"><div class="feature-icon">⏱️</div><h3>Votre rythme</h3><p>5, 10 ou 20 cartes par jour. On commence par les plus simples, la difficulté monte toute seule.</p></div>
+  <div class="feature"><div class="feature-icon">🎯</div><h3>QCM, Vrai/Faux, cas pratiques</h3><p>Chaque réponse explique le « pourquoi » et donne la référence dans le livre.</p></div>
+  <div class="feature"><div class="feature-icon">✡️</div><h3>Badges et progression</h3><p>Une illustration qui se colore au fil des étoiles, des badges par chapitre et une célébration à chaque carte maîtrisée.</p></div>
+  <div class="feature"><div class="feature-icon">👥</div><h3>Entre amis</h3><p>Classement de la semaine, défi commun et badges de communauté.</p></div>
+  <div class="feature"><div class="feature-icon">🕯️</div><h3>Respecte le Chabbat</h3><p>L'app se met en pause pendant Chabbat et les fêtes, aux horaires réels de votre ville. La série n'est jamais cassée.</p></div>
+  <div class="feature"><div class="feature-icon">📖</div><h3>Glossaire et décisionnaires</h3><p>Les termes halakhiques de A à Z et une frise des grands décisionnaires, des Guéonim aux contemporains.</p></div>
+  <div class="feature"><div class="feature-icon">✅</div><h3>Sourcé</h3><p>Questions rédigées à partir du Pninei Halakha – Chabbat, avec le chapitre et le paragraphe pour vérifier.</p></div>
+</div>
+
+<section class="news" id="nouveautes">
+  <h2 class="section" style="margin-top:8px">Nouveautés</h2>
+  <div class="news-card">
+    <h3>Version 1.5.45</h3>
+    <ul>
+      <li>Démarrage plus simple : plus de test, vous choisissez votre rythme.</li>
+      <li>Toutes les cartes accessibles, des plus simples aux plus difficiles.</li>
+      <li>Cartes relues et corrigées, niveaux revus.</li>
+      <li>Nouveaux badges : sessions parfaites, étoiles, chapitres, communauté.</li>
+      <li>Nouveau glossaire A–Z et frise des décisionnaires.</li>
+      <li>Verrou Chabbat et fêtes aux horaires réels de votre ville.</li>
+      <li>Votre progression est sauvegardée et retrouvée quand vous changez de téléphone (avec un compte).</li>
+    </ul>
+  </div>
+</section>
 
 <div class="cta-bottom">
   <h2>Prêt à commencer ?</h2>
-  <p>Téléchargez Zakhor gratuitement pour Android.</p>
-  <a class="cta-btn" href="https://github.com/Raphencoder/zakhor-site/releases/latest/download/app-arm64-v8a-release.apk">
-    ⬇ Télécharger l'APK
-  </a>
+  <p>Gratuit, sur iPhone et Android.</p>
+  <div class="stores">
+    <a class="store" href="https://apps.apple.com/fr/app/zakhor-halakha-chabbat/id6826802153"><span class="ico"></span><span><small>Télécharger dans</small><b>l'App Store</b></span></a>
+    <a class="store" href="https://play.google.com/store/apps/details?id=com.raphael.zakhor"><span class="ico">▶</span><span><small>Disponible sur</small><b>Google Play</b></span></a>
+  </div>
 </div>
 
 <footer>
-  <p>© 2026 Zakhor · <a href="privacy.html">Politique de confidentialité</a> · <a href="mailto:zakhor@tuta.com">zakhor@tuta.com</a></p>
+  <p>© 2026 Zakhor · <a href="privacy.html">Politique de confidentialité</a> · <a href="mailto:zakhor@tuta.com">zakhor@tuta.com</a><br>
+  Zakhor n'est pas affilié à l'éditeur du Pninei Halakha.</p>
 </footer>
 
 </body>
