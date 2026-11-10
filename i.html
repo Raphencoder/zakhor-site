@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation Zakhor זכור — Révise les lois du Chabbat avec moi</title>
+  <meta name="description" content="Un ami t'invite sur Zakhor, l'application gratuite pour retenir les lois du Chabbat. Installe l'app : vous serez amis directement.">
+  <meta property="og:title" content="Un ami t'invite sur Zakhor 👋">
+  <meta property="og:description" content="Révise les lois du Chabbat avec moi : installe Zakhor, on sera amis direct.">
+  <meta property="og:image" content="https://zakhor-app.vercel.app/img/01_accueil.jpg">
+  <meta name="robots" content="noindex">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0A0A14; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: #8b8ff5; text-decoration: none; }
+    header { padding: 20px 24px; border-bottom: 1px solid #1a1a2e; }
+    .logo { font-size: 1.3rem; font-weight: 700; color: #fff; }
+    .logo span { color: #8b8ff5; margin-left: 6px; }
+    main { flex: 1; max-width: 520px; width: 100%; margin: 0 auto; padding: 48px 24px 40px; text-align: center; }
+    .avatar { width: 96px; height: 96px; margin: 0 auto 18px; border-radius: 50%; background: #12122A; border: 2px solid rgba(91,95,239,.5); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); font-weight: 800; line-height: 1.25; margin-bottom: 12px; overflow-wrap: anywhere; }
+    h1 em { color: #8b8ff5; font-style: normal; }
+    .tagline { color: rgba(255,255,255,0.7); margin-bottom: 30px; }
+    .stores { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+    .store { display: flex; align-items: center; gap: 12px; background: #fff; color: #000; padding: 10px 22px; border-radius: 12px; width: 100%; max-width: 280px; transition: transform .15s; }
+    .store:hover { transform: translateY(-2px); }
+    .store .ico { flex: none; display: block; }
+    .store small { display: block; font-size: 0.7rem; opacity: .7; line-height: 1.1; text-align: left; }
+    .store b { font-size: 1.15rem; line-height: 1.2; }
+    .hidden { display: none !important; }
+    .code-box { margin: 30px auto 0; background: #12122A; border: 1px dashed #5B5FEF; border-radius: 16px; padding: 18px; max-width: 320px; }
+    .code-box p { color: rgba(255,255,255,0.65); font-size: 0.9rem; }
+    .code { font-size: 2rem; font-weight: 800; letter-spacing: 4px; color: #fff; margin-top: 4px; overflow-wrap: anywhere; user-select: all; }
+    .copied { color: #86efac; font-size: 0.9rem; margin-top: 14px; min-height: 1.4em; }
+    .already { display: inline-block; margin-top: 26px; color: rgba(255,255,255,0.7); text-decoration: underline; font-size: 0.95rem; }
+    .steps { text-align: left; margin: 34px auto 0; max-width: 360px; color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+    .steps li { margin: 6px 0 6px 18px; }
+    footer { border-top: 1px solid #1a1a2e; padding: 24px; text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.5); }
+  </style>
+</head>
+<body>
+
+<header><a class="logo" href="/">Zakhor<span>זכור</span></a></header>
+
+<main>
+  <div class="avatar" id="avatar">📚</div>
+  <h1 id="title">Un ami t'invite sur <em>Zakhor</em> 👋</h1>
+  <p class="tagline">Révise les lois du Chabbat avec lui : installe l'app, vous serez amis directement.</p>
+
+  <div class="stores">
+    <a class="store" id="ios" href="https://apps.apple.com/fr/app/zakhor-halakha-chabbat/id6826802153">
+      <svg class="ico" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#000" d="M16.37 1.43c0 1.14-.42 2.2-1.25 3.17-1 1.17-2.21 1.84-3.52 1.74a3.54 3.54 0 0 1-.03-.43c0-1.1.48-2.27 1.33-3.23.42-.49.96-.89 1.62-1.21.65-.32 1.27-.49 1.85-.52.02.16.02.32.02.48zm4.2 15.9c-.36.84-.79 1.6-1.29 2.31-.68.96-1.24 1.63-1.67 2-.67.62-1.39.93-2.16.95-.55 0-1.22-.16-1.99-.48-.78-.32-1.49-.48-2.15-.48-.69 0-1.43.16-2.22.48-.79.32-1.43.49-1.92.51-.74.03-1.47-.29-2.2-.97-.47-.4-1.05-1.1-1.75-2.08-.75-1.05-1.37-2.27-1.85-3.66C.86 14.4.6 12.94.6 11.53c0-1.62.35-3.02 1.05-4.19.55-.94 1.29-1.68 2.21-2.22.92-.54 1.91-.82 2.98-.84.59 0 1.36.18 2.31.54.95.36 1.56.54 1.83.54.2 0 .88-.21 2.03-.64 1.09-.39 2.01-.55 2.76-.49 2.04.16 3.57.97 4.59 2.42-1.82 1.11-2.73 2.66-2.71 4.65.02 1.55.58 2.84 1.68 3.86.5.47 1.06.84 1.68 1.1-.13.39-.28.77-.43 1.13z"/></svg><span><small>Télécharger dans</small><b>l'App Store</b></span>
+    </a>
+    <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.raphael.zakhor">
+      <svg class="ico" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#00D7FE" d="M3.6 1.8 13.4 12 3.6 22.2c-.4-.2-.6-.7-.6-1.2V3c0-.5.2-1 .6-1.2z"/><path fill="#FFCE00" d="M17 8.4 13.4 12l3.6 3.6 4.1-2.3c1.2-.7 1.2-1.9 0-2.6L17 8.4z"/><path fill="#FF3A44" d="M13.4 12 3.6 22.2c.4.2.9.2 1.4-.1L17 15.6 13.4 12z"/><path fill="#00F076" d="M13.4 12 17 8.4 5 1.9c-.5-.3-1-.3-1.4-.1L13.4 12z"/></svg><span><small>Disponible sur</small><b>Google Play</b></span>
+    </a>
+  </div>
+  <p class="copied" id="copied" aria-live="polite"></p>
+
+  <div class="code-box hidden" id="codeBox">
+    <p>ou tape ce code dans l'app :</p>
+    <div class="code" id="code"></div>
+  </div>
+
+  <a class="already hidden" id="already" href="zakhor://i/">J'ai déjà l'app</a>
+
+  <ol class="steps">
+    <li>Installe Zakhor (gratuit, sans publicité).</li>
+    <li>Ouvre l'onglet <b>Amis</b> et connecte-toi.</li>
+    <li>Accepte l'invitation : vous êtes amis 🎉</li>
+  </ol>
+</main>
+
+<footer>
+  <p>© 2026 Zakhor · <a href="/privacy">Politique de confidentialité</a> · <a href="mailto:zakhor@tuta.com">zakhor@tuta.com</a></p>
+</footer>
+
+<script>
+(function () {
+  // Clé publishable (publique), comme la page Rav. RPC invite_preview : pseudo + avatar seulement.
+  var SUPABASE_URL = 'https://bijwowruvuhwyhdzjqvw.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_vBzFPCz1PnreIqGp35NvPg_GXPLDuYj';
+  var PLAY = 'https://play.google.com/store/apps/details?id=com.raphael.zakhor';
+  var APP_STORE = 'https://apps.apple.com/fr/app/zakhor-halakha-chabbat/id6826802153';
+
+  function readCode() {
+    var m = location.pathname.match(/\/i\/([^\/?#]+)/);
+    var raw = m ? decodeURIComponent(m[1]) : (new URLSearchParams(location.search).get('c') || '');
+    var code = raw.replace(/\s/g, '').toUpperCase();
+    return /^[A-Z0-9]{4,16}$/.test(code) ? code : null;
+  }
+
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var code = readCode();
+
+  var ios = document.getElementById('ios');
+  var android = document.getElementById('android');
+  if (isAndroid) ios.classList.add('hidden');
+  if (isIOS) android.classList.add('hidden');
+
+  if (!code) return; // Page normale, sans nom ni code.
+
+  // Android : le code passe par le Play Install Referrer.
+  android.href = PLAY + '&referrer=' + encodeURIComponent('zk=' + code);
+  document.getElementById('code').textContent = code;
+  document.getElementById('codeBox').classList.remove('hidden');
+  var already = document.getElementById('already');
+  already.href = 'zakhor://i/' + code;
+  already.classList.remove('hidden');
+
+  // iPhone : au clic (geste utilisateur), ZAKHOR-CODE dans le presse-papier,
+  // que l'app propose de coller au premier lancement.
+  var clip = 'ZAKHOR-' + code;
+  function copySync() {
+    try {
+      var t = document.createElement('textarea');
+      t.value = clip; t.setAttribute('readonly', '');
+      t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t);
+      t.select(); t.setSelectionRange(0, clip.length);
+      var ok = document.execCommand('copy');
+      document.body.removeChild(t);
+      return ok;
+    } catch (e) { return false; }
+  }
+  ios.addEventListener('click', function (e) {
+    e.preventDefault();
+    var ok = copySync();
+    var done = function () {
+      document.getElementById('copied').textContent =
+        'Code ' + clip + ' copié : colle-le dans l\'app après l\'installation.';
+      setTimeout(function () { location.href = APP_STORE; }, 350);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(clip).then(done, done);
+    } else {
+      done();
+    }
+    return ok;
+  });
+
+  // Pseudo + avatar du parrain (RPC publique). Absente ou code inconnu : page sans nom.
+  fetch(SUPABASE_URL + '/rest/v1/rpc/invite_preview', {
+    method: 'POST',
+    headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ p_code: code })
+  }).then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (rows) {
+      var who = rows && rows[0];
+      if (!who || !who.display_name) return;
+      document.getElementById('avatar').textContent = who.avatar_emoji || '📚';
+      var title = document.getElementById('title');
+      title.textContent = '';
+      title.appendChild(document.createTextNode(who.display_name + ' t\'invite sur '));
+      var em = document.createElement('em'); em.textContent = 'Zakhor';
+      title.appendChild(em);
+      title.appendChild(document.createTextNode(' 👋'));
+      document.title = who.display_name + ' t\'invite sur Zakhor';
+    })
+    .catch(function () {});
+})();
+</script>
+</body>
+</html>
