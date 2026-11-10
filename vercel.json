@@ -2,12 +2,24 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/i/:code", "destination": "/i" }
+    {
+      "source": "/i/:code",
+      "destination": "/i"
+    },
+    {
+      "source": "/latest.json",
+      "destination": "https://api.github.com/repos/Raphencoder/zakhor-site/releases/latest"
+    }
   ],
   "headers": [
     {
       "source": "/.well-known/(.*)",
-      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
     }
   ]
 }
